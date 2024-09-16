@@ -1,0 +1,264 @@
+/* styles.css */
+
+/* General Body Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(270deg, #141e30, #243b55, #6c92d7, #00f5a0);
+    background-size: 800% 800%;
+    animation: backgroundAnimation 15s ease infinite;
+    color: #fff;
+}
+
+/* Header Styling */
+header {
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0 20px;
+}
+
+nav ul li a {
+    color: #ffd700;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    height: 3px;
+    background: #00f5a0;
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+nav ul li a:hover {
+    color: #00f5a0;
+}
+
+/* Intro Section */
+.intro-section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('gallery-bg.jpg') no-repeat center center/cover;
+    animation: backgroundAnimation 20s ease infinite;
+}
+
+.intro-content {
+    text-align: center;
+    max-width: 800px;
+}
+
+.intro-content h2 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    animation: fadeInUp 2s ease forwards;
+}
+
+.intro-content p {
+    font-size: 24px;
+    margin-bottom: 40px;
+    animation: fadeInUp 2.5s ease forwards;
+}
+
+.explore-button {
+    background-color: #00f5a0;
+    color: #fff;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 50px;
+    font-size: 20px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeInUp 3s ease forwards;
+}
+
+.explore-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Room Section Styling */
+.room {
+    padding: 80px 20px;
+    text-align: center;
+    position: relative;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.room h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+    animation: fadeInDown 1s ease forwards;
+}
+
+#room1 {
+    background: url('abstract-bg.jpg') no-repeat center center/cover;
+    animation: backgroundAnimation 10s ease infinite;
+}
+
+#room2 {
+    background: url('nature-bg.jpg') no-repeat center center/cover;
+    animation: backgroundAnimation 15s ease infinite;
+}
+
+#room3 {
+    background: url('modern-bg.jpg') no-repeat center center/cover;
+    animation: backgroundAnimation 20s ease infinite;
+}
+
+/* Gallery Styling with 3D Effects */
+.gallery {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.gallery img {
+    width: 30%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    transform: perspective(1000px) rotateY(15deg);
+}
+
+.gallery img:hover {
+    transform: perspective(1000px) rotateY(0deg) scale(1.15);
+    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.7);
+}
+
+/* Footer Styling */
+footer {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 10px 0;
+    text-align: center;
+    color: #fff;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Modal Styling */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal img {
+    max-width: 90%;
+    max-height: 90%;
+    border: 5px solid #fff;
+    border-radius: 20px;
+    transform: perspective(800px) rotateY(15deg);
+    animation: rotateIn 0.5s ease forwards;
+}
+
+/* Keyframes for Animations */
+@keyframes backgroundAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(50px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInDown {
+    0% { opacity: 0; transform: translateY(-50px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes rotateIn {
+    0% { transform: perspective(800px) rotateY(-90deg); }
+    100% { transform: perspective(800px) rotateY(0deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .gallery img {
+        width: 80%;
+    }
+
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    nav ul li a {
+        font-size: 22px;
+    }
+
+    .intro-content h2 {
+        font-size: 36px;
+    }
+
+    .intro-content p {
+        font-size: 18px;
+    }
+
+    .explore-button {
+        padding: 10px 20px;
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery img {
+        width: 100%;
+    }
+
+    .intro-content h2 {
+        font-size: 28px;
+    }
+
+    .intro-content p {
+        font-size: 16px;
+    }
+
+    .explore-button {
+        padding: 8px 16px;
+        font-size: 16px;
+    }
+}
+
